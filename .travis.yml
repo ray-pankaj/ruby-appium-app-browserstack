@@ -4,11 +4,11 @@ install:
   - sudo apt-get update
   - sudo apt-get install -y jq
   - gem install appium_lib
+
+script:
   - curl "https://www.browserstack.com/app-automate/sample-apps/ios/WikipediaSample.apk" -o "WikipediaSample.apk"
   - export BROWSERSTACK_APP_ID=`(curl -u "pankajahuja1:aCxhDStUopf8tsyz4d55" -X POST "https://api-cloud.browserstack.com/app-automate/upload" -F "file=@WikipediaSample.apk" | jq .app_url)`
   - export BROWSERSTACK_APP_ID=`(echo $BROWSERSTACK_APP_ID | tr -d '"')`
   - echo $BROWSERSTACK_APP_ID
   - cd android
-
-script:
   - ruby single_test.rb
