@@ -2,8 +2,8 @@ require 'rubygems'
 require 'appium_lib'
 require 'selenium-webdriver'
 
-username = 'BROWSERSTACK_USERNAME'
-access_key = 'BROWSERSTACK_ACCESS_KEY'
+username = 'pankajahuja1'
+access_key = 'aCxhDStUopf8tsyz4d55'
 
 caps = {}
 caps['build'] = 'Ruby Appium Sample'
@@ -11,7 +11,8 @@ caps['name'] = 'single_test'
 caps['device'] = 'Google Pixel'
 caps['platformName'] = 'android'
 caps['browserstack.debug'] = true
-caps['app'] = 'bs://<hashed app-id>'
+caps['app'] = ENV['BROWSERSTACK_APP_ID'] || 'bs://<hashed app-id>'
+print caps['app']
 
 appium_driver = Appium::Driver.new({
 	'caps' => caps,
