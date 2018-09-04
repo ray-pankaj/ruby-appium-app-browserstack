@@ -5,16 +5,14 @@ install:
   - sudo apt-get install -y jq
   - gem install appium_lib
   - curl "https://www.browserstack.com/app-automate/sample-apps/android/WikipediaSample.apk" -o "WikipediaSample.apk"
-  - export BROWSERSTACK_APP_ID=`(curl -u "pankajahuja1:aCxhDStUopf8tsyz4d55" -X POST "https://api-cloud.browserstack.com/app-automate/upload" -F "file=@WikipediaSample.apk" | jq .app_url)`
-  - export BROWSERSTACK_APP_ID=`(echo $BROWSERSTACK_APP_ID | tr -d '"')`
-  - echo $BROWSERSTACK_APP_ID
   - cd android
 
 script:
+  - echo $BROWSERSTACK_APP_ID
   - ruby single_test.rb
 
 addons:
   browserstack:
     username: 'pankajahuja1'
-    access_key:
-      secure: 'TUYO4qp8TUXNuLAiOpHK3QXm+7AEe5kzTsi1FiZt44Z6qVE2GEKCga0PEQI0SKwRmq2y00COaspnlz2pfJ7byI6a63dSs5D/p8ObJ6qCnMwwUfzleKhsRfIxudWaTNp8c9lUgUzFUcQNsePmCosygZbEA6ra0AAefF/Gv9+Bc0S87RArxpEygW2gtguJs86cTI9B3xrOeL9ux7A6pHnJnfChERqAXQxIx9Xgu32DfTbnkZHHJOsm9kJ+RhEUUHYi7XlVI436iPwpm/XsGh3ipTqXprU9Y3SOt2HZvFENY3AbJE06FfsKOxeVuB2vS0Lb0jpC4NM7AcarNRTD5OoGvUIM91LP9IXH9PipnhNvjrOFrc2IbqqAaQjXz8XBSNmUo7ce9hthOoiHUYyG62euv+YBKLHfo9ji5medRJQODlJWlfqqwYm5D0fquZh8Y+yvlAvz/PGbGiwqxYYlPLHPIwFexnasG/8yp+HsRGTg5X7gsbyNANqBAsaEReLgWu93X37tXySTvabIu4Hhu6ijih4W+zuhu240msqk4KMfan4k7zpDXDcYkurqJqO+d3I69ktc3vRLlAG+kdNvpLgKU6aLrhpVUxAXv0DnPKtzon6x1Uazpq/ehEZHmsSon7HWZxhrD1EVU1N+EjgFw7//FcWThE2jutQZrlf57o5HtXk='
+    access_key: 'aCxhDStUopf8tsyz4d55'
+    app_path: 'WikipediaSample.apk'
