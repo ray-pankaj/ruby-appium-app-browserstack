@@ -4,11 +4,10 @@ install:
   - sudo apt-get update
   - gem install appium_lib
   - curl "https://www.browserstack.com/app-automate/sample-apps/android/WikipediaSample.apk" -o "$TRAVIS_BUILD_DIR/WikipediaSample.apk"
-  - cd android
 
 script:
   - echo $BROWSERSTACK_APP_ID
-  - ruby single_test.rb
+  - ruby android/single_test.rb
 
 addons:
   browserstack:

@@ -2,8 +2,8 @@ require 'rubygems'
 require 'appium_lib'
 require 'selenium-webdriver'
 
-username = ENV['BROWSERSTACK_USER'] || 'BROWSERTACK_USERNAME'
-access_key = ENV['BROWSERSTACK_ACCESS_KEY'] || 'BROWSERTACK_ACCESS_KEY'
+username = 'pankajahuja1'
+access_key = 'aCxhDStUopf8tsyz4d55'
 
 caps = {}
 caps['build'] = 'Ruby Appium Sample'
