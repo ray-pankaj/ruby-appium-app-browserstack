@@ -2,9 +2,8 @@ language: ruby
 
 install:
   - sudo apt-get update
-  - sudo apt-get install -y jq
   - gem install appium_lib
-  - curl "https://www.browserstack.com/app-automate/sample-apps/android/WikipediaSample.apk" -o "WikipediaSample.apk"
+  - curl "https://www.browserstack.com/app-automate/sample-apps/android/WikipediaSample.apk" -o "$TRAVIS_BUILD_DIR/WikipediaSample.apk"
   - cd android
 
 script:
